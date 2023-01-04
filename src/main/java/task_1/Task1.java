@@ -8,6 +8,7 @@ public class Task1 {
                .count();
         System.out.println(count);
         System.out.println(fromBinaryToDecimal(val));
+        System.out.println(fromBinaryToDecimal2(val, val.length() - 1));
     }
 
     static int fromBinaryToDecimal(String str){
@@ -16,6 +17,15 @@ public class Task1 {
         int pow = length - 1;
         for (int i = 0; i < length; i++) {
             number += Character.getNumericValue(str.charAt(i)) * Math.pow(2,pow--);
+        }
+        return number;
+    }
+
+    static int fromBinaryToDecimal2(String str, int pow){
+        int number = 0;
+        int index = 0;
+        while(pow >= 0){
+            number += Character.getNumericValue(str.charAt(index++)) * Math.pow(2,pow--);
         }
         return number;
     }
